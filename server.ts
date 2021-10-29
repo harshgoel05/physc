@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import bodyParser from "body-parser";
 import path from "path";
 import rateLimit from "express-rate-limit";
 import { config } from "dotenv";
@@ -8,6 +7,7 @@ import { initDbClient } from "./api/util/database";
 import { TOO_MANY_REQUESTS_ERROR } from "./api/util/errors";
 import { Request, Response, NextFunction } from "express";
 import testController from "./api/test/test-controller";
+import { handleError } from "./api/util/error-handler";
 async function createServer() {
   /*---------------------------------------------------------
                     Init Middlewares
@@ -21,12 +21,12 @@ async function createServer() {
   app.use(
     rateLimit({
       max: Number(process.env.RATE_LIMIT_MAX || 600),
-      handler: (req:  Request, res : Response) => {
+      handler: (req: Request, res: Response) => {
         res.status(429).json(TOO_MANY_REQUESTS_ERROR);
       },
     })
   );
-  app.use((req:  Request, res : Response,  next : NextFunction) => {
+  app.use((req: Request, res: Response, next: NextFunction) => {
     console.log(new Date(), "       ", req.url);
     next();
   });
@@ -51,6 +51,15 @@ async function createServer() {
       error_description: `Cannot ${req.method} ${req.url}`,
     });
   });
+
+  /*---------------------------------------------------------
+                   Error handler
+  ----------------------------------------------------------*/
+
+  app.use((err, req: Request, res: Response, _next: NextFunction) => {
+    handleError(err, res);
+  });
+
   /*---------------------------------------------------------
                    Start server
   ----------------------------------------------------------*/
