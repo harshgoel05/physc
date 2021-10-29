@@ -1,6 +1,10 @@
 import { Request, Response, NextFunction } from "express";
 import { findUserProfile } from "./auth-service";
 import { SERVER_ERROR, UNAUTHORIZED_ACCESS } from "../util/errors";
+/*---------------------------------------------------------
+                   Authentication Middleware
+  --------------------------------------------------------*/
+
 export function authenticate() {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
