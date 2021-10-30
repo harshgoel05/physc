@@ -9,6 +9,7 @@ import Info from '../../shared/components/Doctor/Info';
 import Profile from '../../shared/components/Doctor/Profile';
 import Explore from '../../shared/components/Doctor/Explore';
 import Patients from '../../shared/components/Paitents';
+import MyPosts from '../../shared/components/MyPosts';
 
 const Dashboard = () => {
   const [active, setActive] = useState('info');
@@ -61,6 +62,7 @@ const Dashboard = () => {
         {active === 'profile' && <Profile />}
         {active === 'explore' && <Explore />}
         {active === 'patients' && <Patients />}
+        {active === 'posts' && <MyPosts />}
       </div>
       <Rightbar />
     </div>
