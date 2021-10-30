@@ -8,6 +8,8 @@ import { TOO_MANY_REQUESTS_ERROR } from "./api/util/errors";
 import { Request, Response, NextFunction } from "express";
 import testController from "./api/test/test-controller";
 import { handleError } from "./api/util/error-handler";
+import usersController from "./api/users/users-contoller";
+import storyController from "./api/story/story-controller";
 async function createServer() {
   /*---------------------------------------------------------
                     Init Middlewares
@@ -44,6 +46,8 @@ async function createServer() {
   });
 
   app.use("/api/test", testController());
+  app.use("/api/users", usersController());
+  app.use("/api/story", storyController());
 
   app.use((req: Request, res: Response) => {
     res.status(404).json({
