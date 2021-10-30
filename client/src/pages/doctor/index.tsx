@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../../shared/components/Navbar/navbar';
 import Search from '../../shared/components/Search';
+import CreatePost from '../../shared/components/CreatePost'
 
 const Dashboard = () => {
   return (
@@ -19,10 +20,14 @@ const Dashboard = () => {
           <span className='cursor-pointer'>Explore</span>
         </div>
         {/* navbar end */}
+         <CreatePost />  
       </div>
+     
       <div className='h-screen w-2/4 bg-gray-50'>right bar</div>
     </div>
   );
 };
+
+
 
 export default Dashboard;

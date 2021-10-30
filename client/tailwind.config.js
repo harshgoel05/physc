@@ -11,6 +11,11 @@ module.exports = {
       darkpurple: "#5163C8",
       faintpurple: "#232C4C",
       textmain: "#C4C4C4",
+      inputblue: "#498EF6",
+    },
+    textColor: (theme) => theme("colors"),
+    placeholderColor: {
+      primary: "#498EF6",
     },
     extend: {
       zIndex: {
