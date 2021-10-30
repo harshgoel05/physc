@@ -17,7 +17,7 @@ export async function signupUser(userData: any) {
     .collection("users")
     .findOne({ email: newUser.email });
   if (user) {
-    throw { code: 409, message: USER_ALREADY_EXISTS };
+    throw USER_ALREADY_EXISTS;
   }
 
   bcrypt.genSalt(10, async function (err, salt) {
@@ -34,9 +34,10 @@ export async function loginUser(userData: any) {
     .db()
     .collection("users")
     .findOne({ email: userData.email }, { projection: { _id: 0 } });
-  if (!user) throw { code: 401, message: USER_DOESNOT_EXISTS };
+  console.log(user);
+  if (!user) throw USER_DOESNOT_EXISTS;
   const result = bcrypt.compareSync(userData.password, user.password);
-  if (!result) throw { code: 401, message: WRONG_PASSWORD };
+  if (!result) throw WRONG_PASSWORD;
   delete user["password"];
   const token = await jwt.sign(user, process.env.JWT_SECRET || "");
   return { token: token };
@@ -47,7 +48,7 @@ export async function getUser(email: any) {
     .db()
     .collection("users")
     .findOne({ email: email }, { projection: { _id: 0, password: 0 } });
-  if (!user) throw { code: 401, message: USER_DOESNOT_EXISTS };
+  if (!user) throw USER_DOESNOT_EXISTS;
   delete user["password"];
   return user;
 }
