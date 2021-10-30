@@ -20,7 +20,6 @@ const Dashboard = () => {
           <span className='cursor-pointer'>Explore</span>
         </div>
         {/* navbar end */}
-         <CreatePost />  
       </div>
      
       <div className='h-screen w-2/4 bg-gray-50'>right bar</div>
@@ -28,6 +27,6 @@ const Dashboard = () => {
   );
 };
 
+export default Dashboard
 
 
-export default Dashboard;

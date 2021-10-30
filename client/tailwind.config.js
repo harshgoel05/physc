@@ -12,6 +12,7 @@ module.exports = {
       faintpurple: "#232C4C",
       textmain: "#C4C4C4",
       inputblue: "#498EF6",
+      red: "#FF4B4B",
     },
     textColor: (theme) => theme("colors"),
     placeholderColor: {
