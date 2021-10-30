@@ -1,66 +1,48 @@
 import React, { useState } from 'react';
 import { MdCheckBoxOutlineBlank, MdCheckBox } from 'react-icons/md';
-
-interface IState {
-  post: {
-    title: string;
-    department: string;
-    location: string;
-    description: string;
-    emergency?: boolean;
-  }[];
-}
-
+import { toast } from 'react-toastify';
+import { createPost as createPostApi } from '../api/auth';
+import { Loader } from './Button';
 const CreatePost = () => {
-  const [emergency, setEmergency] = useState(false);
-  console.log(emergency);
+  const [isEmergency, setIsEmergency] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  console.log(isEmergency);
   const [input, setInput] = useState({
     title: '',
-    department: '',
+    category: '',
     location: '',
     description: '',
-    emergency: false,
+    isEmergency: false,
   });
 
-  const [posts, createPost] = useState<IState['post']>([
-    {
-      title: '',
-      department: '',
-      location: '',
-      description: '',
-      emergency: false,
-    },
-  ]);
-
-  console.log(posts, `post created`);
   const handleChange = (e: any) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
-  const handleClick = () => {
-    console.log(input);
-    if (
-      !input.title ||
-      !input.description ||
-      !input.location ||
-      !input.department
-    ) {
-      return;
-    }
-    createPost([
-      ...posts,
-      {
+  const onSubmit = async () => {
+    try {
+      setIsLoading(true);
+      await createPostApi({
         title: input.title,
-        department: input.department,
+        category: input.category,
         location: input.location,
         description: input.description,
-        emergency: emergency,
-      },
-    ]);
+        isEmergency: isEmergency,
+      });
+      toast.success('Story created successfully!');
+    } catch (err: any) {
+      toast.error(
+        err.response.data.error ||
+          err.response.data.message ||
+          'Some error occured!'
+      );
+    }
+    setIsLoading(false);
   };
 
   const handleEmergency = () => {
-    setEmergency(!emergency);
+    setIsEmergency(!isEmergency);
   };
 
   return (
@@ -78,11 +60,11 @@ const CreatePost = () => {
         <div className="flex mb-5 gap-7">
           <input
             type="text"
-            placeholder="Department"
+            placeholder="Category"
             className="bg-lightpurple text-inputblue placeholder-primary w-1/2 p-4 rounded-xl"
-            value={input.department}
+            value={input.category}
             onChange={handleChange}
-            name="department"
+            name="category"
           />
           <input
             type="text"
@@ -103,26 +85,30 @@ const CreatePost = () => {
         />
       </div>
 
-      <div className="flex justify-between">
+      <div className="flex justify-between items-start">
         <div
-          className="flex cursor-pointer text-red-500 justify-center items-center"
+          className="flex cursor-pointer text-red-500 justify-center items-start"
           onClick={handleEmergency}
         >
-          {emergency ? (
+          {isEmergency ? (
             <MdCheckBox color="#FF4B4B" size={32} />
           ) : (
             <MdCheckBoxOutlineBlank color="#FF4B4B" size={32} />
           )}
-
-          <p className="text-red ml-2.5 text-base">Emergency</p>
+          <div className="flex flex-col">
+            <p className="text-red ml-2.5 text-md">Emergency</p>
+            <p className="ml-2.5 text-grey text-xs">
+              Please use this carefully!
+            </p>
+          </div>
         </div>
 
         <button
-          className="py-4 px-6 bg-darkpurple text-white text-base font-bold rounded-xl"
-          onClick={handleClick}
+          className="py-4 px-6 w-40 h-14 bg-darkpurple text-white text-base font-bold rounded-xl"
+          onClick={onSubmit}
+          disabled={isLoading}
         >
-          {' '}
-          <p>Create post </p>
+          <p>{isLoading ? <Loader /> : 'Create story'} </p>
         </button>
       </div>
     </div>

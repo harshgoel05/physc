@@ -11,6 +11,7 @@ export default function Button({ title, onClick, isLoading = false }: Props) {
         className="w-102 h-16 uppercase bg-black rounded-xl text-white font-bold text-lg"
         onClick={onClick}
         type="button"
+        disabled={isLoading}
       >
         {isLoading ? <Loader /> : title}
       </button>
