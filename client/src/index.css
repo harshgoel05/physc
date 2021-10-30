@@ -15,13 +15,114 @@ p {
   font-family: "DM Sans", sans-serif !important;
 }
 
-input:focus {
-  outline: none !important;
-  border-color: #719ece;
-  box-shadow: 0 0 10px #719ece;
+.Toastify__toast {
+  border-radius: 0.5rem !important;
+  background: #000 !important;
+  color: white !important;
 }
-textarea:focus {
-  outline: none !important;
-  border-color: #719ece;
-  box-shadow: 0 0 10px #719ece;
+.Toastify__toast {
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+}
+.Toastify__toast svg {
+  flex-shrink: 0;
+}
+
+.Toastify__toast .info svg {
+  fill: #58acf5;
+}
+.Toastify__toast .info span {
+  color: #58acf5;
+}
+.Toastify__toast .success svg {
+  fill: #22d296;
+}
+.Toastify__toast .success span {
+  color: #22d296;
+}
+
+.Toastify__toast .warning svg {
+  fill: #d8c07e;
+}
+.Toastify__toast .warning span {
+  color: #d8c07e;
+}
+
+.Toastify__toast .error svg {
+  fill: #ff644e;
+}
+.Toastify__toast .error span {
+  color: #ff644e;
+}
+
+.Toastify__toast svg {
+  margin-right: 1rem;
+}
+.Toastify__toast p {
+  margin-top: 0.2rem;
+}
+
+.Toastify__close-button {
+  opacity: 1;
+}
+
+.Toastify__close-button > svg {
+  fill: var(--color-text-alt) !important;
+}
+
+.success .Toastify__progress-bar--default {
+  background: linear-gradient(
+    to right,
+    darken(#22d296, 20%),
+    lighten(#22d296, 10%)
+  ) !important;
+}
+
+.error .Toastify__progress-bar--default {
+  background: linear-gradient(
+    to right,
+    darken(#ff644e, 20%),
+    lighten(#ff644e, 10%)
+  ) !important;
+}
+
+.info .Toastify__progress-bar--default {
+  background: linear-gradient(
+    to right,
+    darken(#58acf5, 20%),
+    lighten(#58acf5, 10%)
+  ) !important;
+}
+
+.warning .Toastify__progress-bar--default {
+  background: linear-gradient(
+    to right,
+    darken(#d8c07e, 20%),
+    lighten(#d8c07e, 10%)
+  ) !important;
+}
+
+.loader {
+  border-top-color: #0b1539;
+  -webkit-animation: spinner 1.5s linear infinite;
+  animation: spinner 1.5s linear infinite;
+}
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
