@@ -7,6 +7,7 @@ import Post from './pages/Post';
 import { ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
+import SinglePost from './pages/SinglePost';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route path="/post" exact>
             <Post />
+          </Route>
+          <Route path="/singlepost" exact>
+            <SinglePost />
           </Route>
         </Switch>
       </Router>

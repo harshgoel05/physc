@@ -13,6 +13,9 @@ module.exports = {
       textmain: '#C4C4C4',
       inputblue: '#498EF6',
       red: '#FF4B4B',
+      lime: 'rgba(131, 205, 160, 0.38)',
+      darklime: '#53B460',
+      postgrey: '#8E8E8E',
     },
     textColor: (theme) => theme('colors'),
     placeholderColor: {

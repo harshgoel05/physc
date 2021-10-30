@@ -1,8 +1,8 @@
 import React from 'react';
 import Navbar from '../../shared/components/Navbar/navbar';
 import Search from '../../shared/components/Search';
-import CreatePost from '../../shared/components/CreatePost';
 import Rightbar from '../../shared/components/Rightbar';
+import PostBody from '../../shared/components/PostBody';
 
 const Post = () => {
   return (
@@ -10,7 +10,7 @@ const Post = () => {
       <Navbar />
       <div className="h-screen w-full">
         <Search />
-        <CreatePost />
+        <PostBody />
       </div>
  
       <Rightbar />
