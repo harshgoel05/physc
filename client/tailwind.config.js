@@ -12,6 +12,7 @@ module.exports = {
 
       colors: {
         lightpurple: '#F5F7FF',
+        cardPurple: '#5163C8',
         black: '#000000',
         white: '#FFFFFF',
         grey: '#9D9D9D',
@@ -19,6 +20,7 @@ module.exports = {
         darkpurple: '#5163C8',
         faintpurple: '#232C4C',
         textmain: '#C4C4C4',
+        cardGreen: '#69C976',
       },
     },
   },
