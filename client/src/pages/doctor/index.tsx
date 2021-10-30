@@ -1,11 +1,12 @@
 import React from 'react';
 import Heading from '../../shared/components/Heading';
+import Navbar from '../../shared/components/Navbar/navbar';
 import Search from '../../shared/components/Search';
 
 const Dashboard = () => {
   return (
     <div className='flex gap-12'>
-      <div className='h-screen w-4/12 bg-gray-50'>Side bar</div>
+      <Navbar />
       <div className='h-screen w-full'>
         <Search />
 
