@@ -1,7 +1,7 @@
-import * as yup from "yup";
-import { NextFunction, Response, Request } from "express";
+import * as yup from 'yup';
+import { NextFunction, Response, Request } from 'express';
 
-type RequestLocation = "query" | "body" | "params";
+type RequestLocation = 'query' | 'body' | 'params';
 
 export function validateRequest(
   location: RequestLocation,
@@ -10,13 +10,13 @@ export function validateRequest(
   return async (req: Request, res: Response, next: NextFunction) => {
     let _location: any;
     switch (location) {
-      case "query":
+      case 'query':
         _location = req.query;
         break;
-      case "body":
+      case 'body':
         _location = req.body;
         break;
-      case "params":
+      case 'params':
         _location = req.params;
         break;
     }

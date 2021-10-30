@@ -12,9 +12,9 @@ const Dashboard = () => {
   const [active, setActive] = useState('info');
 
   return (
-    <div className='flex gap-12'>
+    <div className="flex gap-12">
       <Navbar />
-      <div className='h-screen w-full'>
+      <div className="h-screen w-full">
         <Search />
 
         {/* Navbar */}

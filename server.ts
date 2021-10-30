@@ -1,13 +1,15 @@
-import express from "express";
-import cors from "cors";
-import path from "path";
-import rateLimit from "express-rate-limit";
-import { config } from "dotenv";
-import { initDbClient } from "./api/util/database";
-import { TOO_MANY_REQUESTS_ERROR } from "./api/util/errors";
-import { Request, Response, NextFunction } from "express";
-import testController from "./api/test/test-controller";
-import { handleError } from "./api/util/error-handler";
+import express from 'express';
+import cors from 'cors';
+import path from 'path';
+import rateLimit from 'express-rate-limit';
+import { config } from 'dotenv';
+import { initDbClient } from './api/util/database';
+import { TOO_MANY_REQUESTS_ERROR } from './api/util/errors';
+import { Request, Response, NextFunction } from 'express';
+import testController from './api/test/test-controller';
+import { handleError } from './api/util/error-handler';
+import usersController from './api/users/users-contoller';
+import storyController from './api/story/story-controller';
 async function createServer() {
   /*---------------------------------------------------------
                     Init Middlewares
@@ -27,27 +29,29 @@ async function createServer() {
     })
   );
   app.use((req: Request, res: Response, next: NextFunction) => {
-    console.log(new Date(), "       ", req.url);
+    console.log(new Date(), '       ', req.url);
     next();
   });
   /*---------------------------------------------------------
                    Serve React App
   ----------------------------------------------------------*/
 
-  app.use(express.static(path.join(__dirname, "client")));
+  app.use(express.static(path.join(__dirname, 'client')));
   app.use((req: Request, res: Response, next: NextFunction) => {
-    if (!req.url.startsWith("/api")) {
-      res.sendFile(path.join(__dirname, "client", "index.html"));
+    if (!req.url.startsWith('/api')) {
+      res.sendFile(path.join(__dirname, 'client', 'index.html'));
     } else {
       next();
     }
   });
 
-  app.use("/api/test", testController());
+  app.use('/api/test', testController());
+  app.use('/api/users', usersController());
+  app.use('/api/story', storyController());
 
   app.use((req: Request, res: Response) => {
     res.status(404).json({
-      error: "not_found",
+      error: 'not_found',
       error_description: `Cannot ${req.method} ${req.url}`,
     });
   });
@@ -64,7 +68,7 @@ async function createServer() {
                    Start server
   ----------------------------------------------------------*/
   app.listen(process.env.PORT || 3000, () => {
-    console.log("Server running on port", process.env.PORT || 3000);
+    console.log('Server running on port', process.env.PORT || 3000);
   });
 }
 

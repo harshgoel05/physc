@@ -1,9 +1,9 @@
-import { Router, Request, Response } from "express";
-import { authenticate } from "../auth/auth";
-import { SERVER_ERROR } from "../util/errors";
+import { Router, Request, Response } from 'express';
+import { authenticate } from '../auth/auth';
+import { SERVER_ERROR } from '../util/errors';
 async function handleCheck(req: Request, res: Response) {
   try {
-    res.status(200).send({ message: "It works!" });
+    res.status(200).send({ message: 'It works!' });
   } catch (err) {
     if (err.code) {
       return res.status(err.code).json(err.message);
@@ -14,6 +14,6 @@ async function handleCheck(req: Request, res: Response) {
 
 export default function testController() {
   const router = Router();
-  router.get("/check", authenticate(), handleCheck);
+  router.get('/check', authenticate(), handleCheck);
   return router;
 }

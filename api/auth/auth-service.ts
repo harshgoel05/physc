@@ -1,5 +1,5 @@
-import jwt from "jsonwebtoken";
+import jwt from 'jsonwebtoken';
 
 export async function findUserProfile(token: string) {
-  return await jwt.verify(token, process.env.JWT_SECRET || "");
+  return await jwt.verify(token, process.env.JWT_SECRET || '');
 }
