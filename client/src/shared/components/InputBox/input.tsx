@@ -9,7 +9,7 @@ export default function Input({
   value,
   setValue,
   placeholder,
-  type = "text",
+  type = 'text',
 }: Props) {
   console.log(value);
   return (

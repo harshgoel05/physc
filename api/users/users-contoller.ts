@@ -1,9 +1,9 @@
-import { Router, Request, Response } from "express";
-import { validateRequest } from "../util/validate-request";
-import { SERVER_ERROR } from "../util/errors";
-import { getUser, loginUser, signupUser } from "./users-service";
-import { loginBodySchema, userSchema } from "./users-model";
-import { authenticate } from "../auth/auth";
+import { Router, Request, Response } from 'express';
+import { validateRequest } from '../util/validate-request';
+import { SERVER_ERROR } from '../util/errors';
+import { getUser, loginUser, signupUser } from './users-service';
+import { loginBodySchema, userSchema } from './users-model';
+import { authenticate } from '../auth/auth';
 
 /*---------------------------------------------------------
                    Login User
@@ -65,11 +65,11 @@ async function handleGetUser(req: Request, res: Response) {
 export default function usersController() {
   const router = Router();
   router.post(
-    "/login",
-    validateRequest("body", loginBodySchema),
+    '/login',
+    validateRequest('body', loginBodySchema),
     handleLoginUser
   );
-  router.post("/create", validateRequest("body", userSchema), handleSignupUser);
-  router.get("/", authenticate(), handleGetUser);
+  router.post('/create', validateRequest('body', userSchema), handleSignupUser);
+  router.get('/', authenticate(), handleGetUser);
   return router;
 }

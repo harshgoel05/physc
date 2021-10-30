@@ -1,12 +1,12 @@
-import React from "react";
-import "./App.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Login from "./pages/Login/login";
-import Dashboard from "./pages/doctor";
-import Post from "./pages/Post";
-import { ToastContainer } from "react-toastify";
+import React from 'react';
+import './App.css';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Login from './pages/Login/login';
+import Dashboard from './pages/doctor';
+import Post from './pages/Post';
+import { ToastContainer } from 'react-toastify';
 
-import "react-toastify/dist/ReactToastify.css";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (

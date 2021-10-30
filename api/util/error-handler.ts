@@ -1,4 +1,4 @@
-import { Response } from "express";
+import { Response } from 'express';
 
 export interface ErrorResponse {
   message?: string;
@@ -21,9 +21,9 @@ export class ErrorHandler extends Error {
     this.message = error.message;
     if (!this.message) {
       if (this.statusCode === 500) {
-        this.message = "Internal Server error";
+        this.message = 'Internal Server error';
       } else {
-        this.message = "Some unknown error occured.";
+        this.message = 'Some unknown error occured.';
       }
     }
   }
@@ -31,33 +31,33 @@ export class ErrorHandler extends Error {
 
 export const handleError = (err: any, res: Response) => {
   const { statusCode, message, stack } = err;
-  const responseObject: ErrorResponse = { status: "error", stack };
+  const responseObject: ErrorResponse = { status: 'error', stack };
   /*----------------------------------------------------------*
                       Message according to error
     -----------------------------------------------------------*/
   switch (true) {
-    case err.constructor.name === "MongoError": {
-      responseObject.message = "Service Unavailable";
+    case err.constructor.name === 'MongoError': {
+      responseObject.message = 'Service Unavailable';
       responseObject.statusCode = 503;
       break;
     }
-    case err.constructor.name === "ValidationError": {
+    case err.constructor.name === 'ValidationError': {
       responseObject.message = err.errors[0];
       responseObject.statusCode = 400;
       break;
     }
-    case err.constructor.name === "MulterError": {
+    case err.constructor.name === 'MulterError': {
       responseObject.message = err.message;
       responseObject.statusCode = 400;
       break;
     }
-    case "explicit" in err: {
+    case 'explicit' in err: {
       responseObject.message = message;
       responseObject.statusCode = statusCode;
       break;
     }
     default: {
-      responseObject.message = "Internal Server error";
+      responseObject.message = 'Internal Server error';
       responseObject.statusCode = 500;
     }
   }
@@ -65,7 +65,7 @@ export const handleError = (err: any, res: Response) => {
                       Include Stack if dev environment
     -----------------------------------------------------------*/
 
-  if (process.env.ENVIRONMENT == "dev") {
+  if (process.env.ENVIRONMENT == 'dev') {
     console.log(responseObject);
     res.status(responseObject.statusCode).json(responseObject);
   } else {

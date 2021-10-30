@@ -1,8 +1,8 @@
-import React from "react";
-import Navbar from "../../shared/components/Navbar/navbar";
-import Search from "../../shared/components/Search";
-import CreatePost from "../../shared/components/CreatePost";
-import Rightbar from "../../shared/components/Rightbar";
+import React from 'react';
+import Navbar from '../../shared/components/Navbar/navbar';
+import Search from '../../shared/components/Search';
+import CreatePost from '../../shared/components/CreatePost';
+import Rightbar from '../../shared/components/Rightbar';
 
 const Post = () => {
   return (

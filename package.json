@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node ./build/server.js",
     "build": "npx tsc && cd client && yarn && yarn build && npx ncp build ../build/client",
-    "dev": "npx tsc-watch --onSuccess \"node ./build/server.js\""
+    "dev": "npx tsc-watch --onSuccess \"node ./build/server.js\"",
+    "format": "prettier --write ./**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc --ignore-path .gitignore"
   },
   "author": "",
   "description": "",
@@ -33,6 +34,7 @@
     "@types/jsonwebtoken": "^8.5.0",
     "@types/mongodb": "^3.5.32",
     "@types/nodemailer": "^6.4.0",
-    "@types/yup": "^0.29.9"
+    "@types/yup": "^0.29.9",
+    "prettier": "^2.4.1"
   }
 }

@@ -1,4 +1,4 @@
-import * as yup from "yup";
+import * as yup from 'yup';
 export const storyCommentSchema = yup.object().shape({
   text: yup.string().required(),
   name: yup.string(),
@@ -24,9 +24,12 @@ export const storySchema = yup.object().shape({
   id: yup.string(),
   image_url: yup.string(),
   title: yup.string().required(),
-  sub_title: yup.string().required(),
+  category: yup.string().required(),
+  location: yup.string().required(),
   description: yup.string().required(),
-  tags: yup.string().required(),
+  isEmergency: yup.bool().default(function () {
+    return false;
+  }),
   timestamp: yup.number().default(function () {
     return +new Date();
   }),
@@ -42,9 +45,7 @@ export const storySchema = yup.object().shape({
     .default(function () {
       return [];
     }),
-  isEmergency: yup.bool().default(function () {
-    return false;
-  }),
+
   public: yup.bool().default(function () {
     return false;
   }),
@@ -63,7 +64,7 @@ export const storySchema = yup.object().shape({
   createdBy: yup.string(),
 });
 export const storyRequestParamsSchema = yup.object().shape({
-  type: yup.string().oneOf(["upvote", "downvote"]).required(),
+  type: yup.string().oneOf(['upvote', 'downvote']).required(),
 });
 export const findStoryIdParamsSchema = yup.object().shape({
   id: yup.string().required(),

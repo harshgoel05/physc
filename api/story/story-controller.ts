@@ -1,6 +1,6 @@
-import { Router, Request, Response } from "express";
-import { validateRequest } from "../util/validate-request";
-import { SERVER_ERROR } from "../util/errors";
+import { Router, Request, Response } from 'express';
+import { validateRequest } from '../util/validate-request';
+import { SERVER_ERROR } from '../util/errors';
 import {
   createstory,
   createComment,
@@ -8,14 +8,14 @@ import {
   getStoryById,
   increaseVotes,
   getAllStories,
-} from "./story-service";
-import { authenticate } from "../auth/auth";
+} from './story-service';
+import { authenticate } from '../auth/auth';
 import {
   storyCommentSchema,
   storyRequestParamsSchema,
   storySchema,
   findStoryIdParamsSchema,
-} from "./story-model";
+} from './story-model';
 
 async function handleCreateStory(req: Request, res: Response) {
   try {
@@ -99,30 +99,30 @@ async function handleincreaseVotes(req: Request, res: Response) {
 export default function storyController() {
   const router = Router();
   router.post(
-    "/new",
+    '/new',
     authenticate(),
-    validateRequest("body", storySchema),
+    validateRequest('body', storySchema),
     handleCreateStory
   );
-  router.get("/", handleGetAllStories);
+  router.get('/', handleGetAllStories);
   router.post(
-    "/:id/comment",
+    '/:id/comment',
     authenticate(),
-    validateRequest("params", findStoryIdParamsSchema),
-    validateRequest("body", storyCommentSchema),
+    validateRequest('params', findStoryIdParamsSchema),
+    validateRequest('body', storyCommentSchema),
     handleCreateComment
   );
-  router.get("/find/user/all", authenticate(), handleGetAllStoriesByUser);
+  router.get('/find/user/all', authenticate(), handleGetAllStoriesByUser);
   router.get(
-    "/find/id/:id",
+    '/find/id/:id',
     authenticate(),
-    validateRequest("params", findStoryIdParamsSchema),
+    validateRequest('params', findStoryIdParamsSchema),
     handleGetStoryDetailsById
   );
   router.put(
-    "/:type/:id",
+    '/:type/:id',
     authenticate(),
-    validateRequest("params", storyRequestParamsSchema),
+    validateRequest('params', storyRequestParamsSchema),
     handleincreaseVotes
   );
 

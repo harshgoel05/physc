@@ -1,19 +1,19 @@
-import BottomLeft from "../../assets/1.png";
-import TopRight from "../../assets/2.png";
-import Logo from "../../assets/logo.png";
-import Illustration from "../../assets/login_illustration.png";
-import Input from "../../shared/components/InputBox/input";
-import { useState } from "react";
-import Button from "../../shared/components/Button/button";
-import { loginUser } from "../../shared/api";
-import { toast } from "react-toastify";
-import { useHistory } from "react-router";
+import BottomLeft from '../../assets/1.png';
+import TopRight from '../../assets/2.png';
+import Logo from '../../assets/logo.png';
+import Illustration from '../../assets/login_illustration.png';
+import Input from '../../shared/components/InputBox/input';
+import { useState } from 'react';
+import Button from '../../shared/components/Button/button';
+import { loginUser } from '../../shared/api';
+import { toast } from 'react-toastify';
+import { useHistory } from 'react-router';
 export default function Login() {
   let history = useHistory();
 
   const [data, setData] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
   const [isLoading, setIsLoading] = useState(false);
 
@@ -22,8 +22,8 @@ export default function Login() {
       setIsLoading(true);
       const res = await loginUser(data);
       console.log(res);
-      localStorage.setItem("token", res.token);
-      history.push("/dashboard");
+      localStorage.setItem('token', res.token);
+      history.push('/dashboard');
     } catch (err: any) {
       console.log(err);
       toast.error(err.message);
