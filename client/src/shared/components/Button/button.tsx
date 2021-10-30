@@ -1,6 +1,9 @@
-import React from "react";
-
-export default function Button({ title, onClick }: any) {
+interface Props {
+  title: string;
+  onClick: any;
+  isLoading?: boolean;
+}
+export default function Button({ title, onClick, isLoading = false }: Props) {
   return (
     <>
       <button
@@ -9,8 +12,25 @@ export default function Button({ title, onClick }: any) {
         onClick={onClick}
         type="button"
       >
-        {title}
+        {isLoading ? <Loader /> : title}
       </button>
     </>
+  );
+}
+
+export function Loader() {
+  return (
+    <div className="flex justify-center items-center">
+      <div
+        className="
+      loader
+      ease-linear
+      rounded-full
+      border-4 border-gray-200
+      h-8
+      w-8
+    "
+      ></div>
+    </div>
   );
 }
