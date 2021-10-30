@@ -17,6 +17,9 @@ module.exports = {
       darklime: '#53B460',
       postgrey: '#8E8E8E',
       inputpurple: 'rgba(255, 255, 255, 0.1)',
+      reports: 'rgba(73, 142, 247, 0.1);',
+      myposts: '#EEFDF3',
+      patient: '#FFF6F6',
     },
     textColor: (theme) => theme('colors'),
     placeholderColor: {

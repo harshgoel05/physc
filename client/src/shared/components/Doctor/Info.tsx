@@ -9,7 +9,7 @@ const Info = ({ activeProp, setActive }: any) => {
   return (
     <>
       <div className="flex gap-14 w-10/12 px-4 mt-8 text-center">
-        <div className="w-full h-52 flex items-center justify-center bg-blue-100 cursor-pointer rounded-xl pt-6">
+        <div className="w-full h-52 flex items-center justify-center bg-reports cursor-pointer rounded-xl pt-6">
           <div
             className="-mt-6"
             onClick={() => {
@@ -22,7 +22,7 @@ const Info = ({ activeProp, setActive }: any) => {
           </div>
         </div>
         <div
-          className="w-full h-52 bg-green-100 flex items-center justify-center cursor-pointer rounded-xl pt-6"
+          className="w-full h-52 bg-myposts flex items-center justify-center cursor-pointer rounded-xl pt-6"
           onClick={() => {
             setActive('posts');
           }}
@@ -34,7 +34,7 @@ const Info = ({ activeProp, setActive }: any) => {
           </div>
         </div>
         <div
-          className="w-full h-52 bg-red-100 flex items-center justify-center cursor-pointer rounded-xl pt-6"
+          className="w-full h-52 bg-patient flex items-center justify-center cursor-pointer rounded-xl pt-6"
           onClick={() => {
             setActive('patients');
           }}
