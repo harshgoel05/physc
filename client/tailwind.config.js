@@ -16,10 +16,12 @@ module.exports = {
       lime: 'rgba(131, 205, 160, 0.38)',
       darklime: '#53B460',
       postgrey: '#8E8E8E',
+      inputpurple: 'rgba(255, 255, 255, 0.1)',
     },
     textColor: (theme) => theme('colors'),
     placeholderColor: {
       primary: '#498EF6',
+      secondary: '#FFF',
     },
     extend: {
       zIndex: {
