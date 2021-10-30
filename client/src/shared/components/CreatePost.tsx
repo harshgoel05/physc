@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import Input from './InputBox/input';
 import {MdCheckBoxOutlineBlank, MdCheckBox } from 'react-icons/md';
 
 interface IState {

@@ -6,10 +6,10 @@ const Search = () => {
     <div className=' flex items-center justify-between p-4 mt-3'>
       <input
         placeholder='Search'
-        className='w-full placeholder-blue-200 outline-none'
+        className='w-full placeholder-blue-300 outline-none'
       />
 
-      <BsSearch className='text-blue-200' />
+      <BsSearch className='text-blue-300' />
     </div>
   );
 };
