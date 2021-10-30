@@ -19,6 +19,12 @@ module.exports = {
       width: {
         102: "28rem",
       },
+      colors: {
+        lightpurple: "#F5F7FF",
+        black: "#000000",
+        white: "#FFFFFF",
+        grey: "#9D9D9D",
+      },
     },
   },
   variants: {

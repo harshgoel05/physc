@@ -14,9 +14,9 @@ export default function Navbar() {
     <div className="bg-novelblue h-screen w-4/12 pt-8 pl-12 pr-24 flex-col content-end">
     <div>
    
-        <img src={Logo} className="mb-12" />
+        <img src={Logo} alt="logo" className="mb-12" />
 
-        <div className="flex cursor-pointer rounded-2xl bg-faintpurple text-darkpurple p-5 mb-10 w-4/6">
+        <div className="flex cursor-pointer rounded-2xl bg-faintpurple text-darkpurple p-5 mb-10 ">
              <MdAddBox size={40} className="mr-3.5"/> 
              <p className="font-sans text-sm text-white font-medium"> Create <br /> new post</p>
         </div>
@@ -40,7 +40,7 @@ export default function Navbar() {
      
      <div className="flex gap-2">
          <div bg-faintpurple className="rounded-full ">
-            <img src={ProfileImg}/>
+            <img alt="profile img" src={ProfileImg}/>
          </div>
          <div>
              <p className=" font-sans text-xl font-medium text-textmain"> Yaksh</p>
