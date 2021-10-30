@@ -24,17 +24,18 @@ export default function Login() {
         <div className="w-1/2 flex flex-col justify-center items-center gap-8">
           <Input
             value={data.username}
-            data={data}
             setValue={(e: any) =>
               setData({ ...data, username: e?.target?.value })
             }
+            placeholder="Username"
           />
           <Input
             value={data.password}
-            data={data}
             setValue={(e: any) =>
               setData({ ...data, password: e?.target?.value })
             }
+            placeholder="Password"
+            type="password"
           />
           <Button title="Submit" onClick={onSubmit} />
         </div>
