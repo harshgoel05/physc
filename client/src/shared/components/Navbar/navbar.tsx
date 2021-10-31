@@ -4,8 +4,12 @@ import ProfileImg from '../../../assets/profile.png';
 import { MdAddBox } from 'react-icons/md';
 import { BiCategory, BiLogOut } from 'react-icons/bi';
 import { HiOutlineUserGroup } from 'react-icons/hi';
+import { useStateValue } from '../../../store/stateProvider';
 
 export default function Navbar() {
+  const [{ Doctor }, dispatch] = useStateValue();
+  console.log(Doctor);
+
   return (
     <div className="h-screen w-4/12 pt-8 pl-12 pr-16 flex-col content-end">
       <img src={logo} alt="logo" className="mb-12 h-10" />
@@ -38,8 +42,10 @@ export default function Navbar() {
           <img alt="profile img" src={ProfileImg} />
         </div>
         <div>
-          <p className=" font-sans font-medium"> Yaksh</p>
-          <p className=" font-sans text-base text-textmain"> Cardiologist</p>
+          <p className=" font-sans font-medium">{Doctor?.name}</p>
+          <p className=" font-sans text-base text-textmain">
+            {Doctor?.department}
+          </p>
         </div>
       </div>
     </div>

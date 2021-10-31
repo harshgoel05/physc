@@ -21,7 +21,7 @@ const ListItem = (props: any) => {
 
         <div className="">
           <p className="text-semibold">{props.title}</p>
-          <p className="text-gray-400 text-xs">Yaksh Chopra</p>
+          <p className="text-gray-400 text-xs">{props.desc}</p>
         </div>
       </div>
 
@@ -29,7 +29,7 @@ const ListItem = (props: any) => {
       {props.type === 'xl' && (
         <div className="flex gap-2 text-gray-400 items-center">
           <BiTimeFive />
-          <span>2 hrs</span>
+          <span>{props.time} hrs</span>
         </div>
       )}
 
