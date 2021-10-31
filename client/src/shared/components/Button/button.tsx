@@ -28,8 +28,8 @@ export function Loader() {
       ease-linear
       rounded-full
       border-4 border-gray-200
-      h-8
-      w-8
+      h-6
+      w-6
     "
       ></div>
     </div>

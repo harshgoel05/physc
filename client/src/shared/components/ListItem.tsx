@@ -21,7 +21,7 @@ const ListItem = (props: any) => {
 
         <div className="">
           <p className="text-semibold">{props.title}</p>
-          <p className="text-gray-400 text-xs">{props.desc}</p>
+          <p className="text-gray-400 text-xs">31st Oct'2021</p>
         </div>
       </div>
 
