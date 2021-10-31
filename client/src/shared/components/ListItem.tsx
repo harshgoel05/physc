@@ -7,7 +7,7 @@ const ListItem = (props: any) => {
   return (
     <div className=" flex items-center justify-between py-3 cursor-pointer hover:bg-blue-50 px-3">
       <div className="flex gap-4 items-center">
-        {props.type !== 'manuscripts' ? (
+        {props.type !== 'manuscript' ? (
           <div className="bg-blue-700 rounded-full h-10 w-10 object-fill overflow-hidden relative">
             <img
               src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
@@ -20,7 +20,7 @@ const ListItem = (props: any) => {
         )}
 
         <div className="">
-          <p className="text-semibold">Cardiology</p>
+          <p className="text-semibold">{props.title}</p>
           <p className="text-gray-400 text-xs">Yaksh Chopra</p>
         </div>
       </div>

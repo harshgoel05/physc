@@ -9,18 +9,6 @@ const Info = ({ activeProp, setActive }: any) => {
   return (
     <>
       <div className="flex gap-14 w-10/12 px-4 mt-8 text-center">
-        <div className="w-full h-52 flex items-center justify-center bg-reports cursor-pointer rounded-xl pt-6">
-          <div
-            className="-mt-6"
-            onClick={() => {
-              setActive('reports');
-            }}
-          >
-            <img src={dashboard1} className="w-16 mx-auto" alt="" />
-            <p className="font-semibold text-sm mt-5">Reports</p>
-            <p className="text-xs text-gray-400 mt-1">5 pending</p>
-          </div>
-        </div>
         <div
           className="w-full h-52 bg-myposts flex items-center justify-center cursor-pointer rounded-xl pt-6"
           onClick={() => {
@@ -43,6 +31,18 @@ const Info = ({ activeProp, setActive }: any) => {
             <img src={dashboard3} className="w-16 mx-auto" alt="" />
             <p className="font-semibold text-sm mt-5">Find Patients</p>
             <p className="text-xs text-gray-400 mt-1">1335 members</p>
+          </div>
+        </div>
+        <div className="w-full h-52 flex items-center justify-center bg-reports cursor-pointer rounded-xl pt-6">
+          <div
+            className="-mt-6"
+            onClick={() => {
+              setActive('reports');
+            }}
+          >
+            <img src={dashboard1} className="w-16 mx-auto" alt="" />
+            <p className="font-semibold text-sm mt-5">Reports</p>
+            <p className="text-xs text-gray-400 mt-1">5 pending</p>
           </div>
         </div>
       </div>

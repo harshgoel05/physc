@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../../../assets/logowhite.png';
+import logo from '../../../assets/logo.png';
 import ProfileImg from '../../../assets/profile.png';
 import { MdAddBox } from 'react-icons/md';
 import { BiCategory, BiLogOut } from 'react-icons/bi';
@@ -7,12 +7,12 @@ import { HiOutlineUserGroup } from 'react-icons/hi';
 
 export default function Navbar() {
   return (
-    <div className="bg-novelblue h-screen w-4/12 pt-8 pl-12 pr-16 flex-col content-end">
-      <img src={Logo} alt="logo" className="mb-12 h-10" />
+    <div className="h-screen w-4/12 pt-8 pl-12 pr-16 flex-col content-end">
+      <img src={logo} alt="logo" className="mb-12 h-10" />
       <div>
-        <div className="flex cursor-pointer rounded-2xl bg-faintpurple text-darkpurple p-5 mb-10 ">
+        <div className="flex cursor-pointer rounded-2xl bg-lightpurple text-darkpurple p-5 mb-10 ">
           <MdAddBox className="text-4xl mr-3.5" />
-          <p className="font-sans text-sm text-white font-medium">
+          <p className="font-sans text-sm font-medium">
             Create <br /> new post
           </p>
         </div>
@@ -38,7 +38,7 @@ export default function Navbar() {
           <img alt="profile img" src={ProfileImg} />
         </div>
         <div>
-          <p className=" font-sans text-xl font-medium text-textmain"> Yaksh</p>
+          <p className=" font-sans font-medium"> Yaksh</p>
           <p className=" font-sans text-base text-textmain"> Cardiologist</p>
         </div>
       </div>

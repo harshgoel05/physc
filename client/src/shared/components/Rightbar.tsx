@@ -1,33 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BsBell } from 'react-icons/bs';
 import Heading from './Heading';
 import ListItem from './ListItem';
+import { AiOutlinePlus } from 'react-icons/ai';
+import Note from './Note';
 
 const Rightbar = () => {
-  return (
-    <div className="h-screen w-2/4">
-      <div className="text-right text-xl pr-10 pt-4 mt-3 cursor-pointer text-blue-300">
-        <BsBell className="ml-auto" />
-      </div>
-      <div className="mt-5">
-        <Heading text="Trending Posts" />
-        <div className="flex flex-col gap-2 mt-5 pr-10">
-          <ListItem />
-          <ListItem />
-          <ListItem />
-          <ListItem />
-        </div>
-      </div>
+  const [list, setList] = useState([
+    {
+      title: '',
+      desc: '',
+    },
+  ]);
 
-      <div className="mt-5">
-        <Heading text="Manuscripts" />
-        <div className="flex flex-col gap-2 mt-5 pr-10">
-          <ListItem type="manuscripts" />
-          <ListItem type="manuscripts" />
-          <ListItem type="manuscripts" />
+  const [add, setAdd] = useState(false);
+
+  return (
+    <>
+      {add && <Note add={add} setAdd={setAdd} list={list} setList={setList} />}
+      <div className="h-screen w-2/4">
+        <div className="text-right text-xl pr-10 pt-4 mt-3 cursor-pointer text-blue-300">
+          <BsBell className="ml-auto" />
+        </div>
+        <div className="mt-5">
+          <Heading text="Trending Posts" />
+          <div className="flex flex-col gap-2 mt-5 pr-10">
+            <ListItem />
+            <ListItem />
+            <ListItem />
+            <ListItem />
+          </div>
+        </div>
+
+        <div className="mt-5">
+          <div className="flex items-center justify-between mr-12">
+            <Heading text="Manuscripts" />
+            <AiOutlinePlus
+              className="text-xl cursor-pointer"
+              onClick={() => setAdd(true)}
+            />
+          </div>
+
+          <div className="flex flex-col gap-2 mt-5 pr-10">
+            {list.map((item: any) => {
+              return <ListItem type="manuscript" title={item.title} />;
+            })}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

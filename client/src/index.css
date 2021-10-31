@@ -109,6 +109,10 @@ p {
   animation: spinner 1.5s linear infinite;
 }
 
+.fade {
+  background: #00000069;
+}
+
 @-webkit-keyframes spinner {
   0% {
     -webkit-transform: rotate(0deg);

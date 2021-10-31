@@ -16,7 +16,7 @@ module.exports = {
       },
 
       colors: {
-        lightpurple: '#F5F7FF',
+        lightpurple: '#ECEFFF',
         black: '#000000',
         white: '#FFFFFF',
         grey: '#9D9D9D',
@@ -33,6 +33,8 @@ module.exports = {
         reports: 'rgba(73, 142, 247, 0.1);',
         myposts: '#EEFDF3',
         patient: '#FFF6F6',
+        cardPurple: '#5163C8',
+        cardGreen: '#69C976',
       },
     },
   },
