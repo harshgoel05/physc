@@ -8,6 +8,10 @@ import Button from '../../shared/components/Button/button';
 import { loginUser } from '../../shared/api';
 import { toast } from 'react-toastify';
 import { useHistory } from 'react-router';
+import logo from '../../assets/logo.png';
+import blur from '../../assets/blur.png';
+import card from '../../assets/card.png';
+
 export default function Login() {
   let history = useHistory();
 
@@ -32,7 +36,7 @@ export default function Login() {
   };
   return (
     <>
-      <div className="bg-lightpurple min-h-screen w-screen relative">
+      {/* <div className="bg-lightpurple min-h-screen w-screen relative">
         <img src={Logo} alt="" className="absolute top-10 left-10 w-32 " />
         <img
           src={BottomLeft}
@@ -62,6 +66,64 @@ export default function Login() {
           </div>
           <div className="w-1/2 flex justify-center items-center">
             <img src={Illustration} alt="" className="3/5" />
+          </div>
+        </div>
+      </div> */}
+
+      <div>
+        <img src={logo} className=" h-8 fixed top-8 left-8" alt="" />
+        <div className="flex p-4 h-screen overflow-hidden">
+          <div className="w-full flex items-center justify-center">
+            <div className="w-5/12 -ml-8">
+              <p className=" text-2xl font-bold">Login</p>
+              <div className="w-full mt-10">
+                <input
+                  placeholder="Username"
+                  type="email"
+                  value={data.email}
+                  onChange={(e: any) =>
+                    setData({ ...data, email: e?.target?.value })
+                  }
+                  className="outline-none border-b p-2 w-full"
+                />
+                <input
+                  placeholder="Password"
+                  value={data.password}
+                  onChange={(e: any) =>
+                    setData({ ...data, password: e?.target?.value })
+                  }
+                  className="outline-none border-b p-2 w-full mt-8"
+                  type="password"
+                />
+                <p
+                  onClick={onSubmit}
+                  className="bg-darkpurple w-full text-white rounded-lg mt-12 text-center py-3 cursor-pointer"
+                >
+                  Sign in
+                </p>
+                <p className="text-gray-500 mt-8">
+                  First time here?{' '}
+                  <span
+                    className="text-darkpurple cursor-pointer"
+                    onClick={() => history.push('/register')}
+                  >
+                    Register
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="h-full w-2/4 bg-blue-50 flex items-center rounded-r-xl relative">
+            <img
+              src={blur}
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+              alt=""
+            />
+            <img
+              src={card}
+              className="rounded-xl w-full transform -translate-x-36"
+              alt=""
+            />
           </div>
         </div>
       </div>
