@@ -3,7 +3,11 @@ import logo from '../../assets/logo.png';
 import blur from '../../assets/blur.png';
 import card from '../../assets/card.png';
 
+import { useHistory } from 'react-router';
+
 const Register = () => {
+  let history = useHistory();
+
   const [data, setData] = useState({
     name: '',
     email: '',
@@ -60,7 +64,14 @@ const Register = () => {
               </p>
               <p className="text-gray-500 mt-8">
                 Already registered?{' '}
-                <span className="text-darkpurple cursor-pointer">Login</span>
+                <span
+                  className="text-darkpurple cursor-pointer"
+                  onClick={() => {
+                    history.push('/');
+                  }}
+                >
+                  Login
+                </span>
               </p>
             </div>
           </div>

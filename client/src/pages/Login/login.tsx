@@ -4,7 +4,7 @@ import Logo from '../../assets/logo.png';
 import Illustration from '../../assets/login_illustration.png';
 import Input from '../../shared/components/InputBox/input';
 import { useState } from 'react';
-import Button from '../../shared/components/Button/button';
+import { Loader } from '../../shared/components/Button/button';
 import { loginUser } from '../../shared/api';
 import { toast } from 'react-toastify';
 import { useHistory } from 'react-router';
@@ -24,13 +24,16 @@ export default function Login() {
   const onSubmit = async () => {
     try {
       setIsLoading(true);
-      const res = await loginUser(data);
+      const res = await loginUser({
+        email: data.email.toLowerCase(),
+        password: data.password,
+      });
       console.log(res);
       localStorage.setItem('token', res.token);
       history.push('/dashboard');
     } catch (err: any) {
       console.log(err);
-      toast.error(err.message);
+      toast.error(err.response.data.error || err.response.data);
     }
     setIsLoading(false);
   };
@@ -78,7 +81,7 @@ export default function Login() {
               <p className=" text-2xl font-bold">Login</p>
               <div className="w-full mt-10">
                 <input
-                  placeholder="Username"
+                  placeholder="Email"
                   type="email"
                   value={data.email}
                   onChange={(e: any) =>
@@ -99,7 +102,7 @@ export default function Login() {
                   onClick={onSubmit}
                   className="bg-darkpurple w-full text-white rounded-lg mt-12 text-center py-3 cursor-pointer"
                 >
-                  Sign in
+                  {isLoading ? <Loader /> : 'Sign in'}
                 </p>
                 <p className="text-gray-500 mt-8">
                   First time here?{' '}
@@ -107,7 +110,7 @@ export default function Login() {
                     className="text-darkpurple cursor-pointer"
                     onClick={() => history.push('/register')}
                   >
-                    Register
+                    Register Now
                   </span>
                 </p>
               </div>
