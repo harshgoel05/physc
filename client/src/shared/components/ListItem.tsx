@@ -19,7 +19,7 @@ const ListItem = (props: any) => {
           <IoDocumentTextOutline className="text-4xl" />
         )}
 
-        <div className="">
+        <div className="w-56 flex-col flex-wrap">
           <p className="text-semibold">{props.title}</p>
           <p className="text-gray-400 text-xs">31st Oct'2021</p>
         </div>

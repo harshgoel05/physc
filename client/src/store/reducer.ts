@@ -2,12 +2,23 @@ export const initialState = {
   Doctor: {
     name: 'Yaksh Chopra',
     department: 'Dermetology',
+    location: 'Jammu',
     reports: 5,
     posts: [
       {
-        title: 'Testing',
+        title: 'Another covid-19 variant',
+        desc: 'This is a test post',
+        time: 1,
+      },
+      {
+        title: 'Kidney stone',
         desc: 'This is a test post',
         time: 3,
+      },
+      {
+        title: 'Knee replacement or not',
+        desc: 'This is a test post',
+        time: 5,
       },
     ],
     emergencies: [
@@ -41,6 +52,7 @@ function reducer(state: any, action: any) {
         department: action.department,
         reports: action.reports,
         posts: action.posts,
+        location: action.location,
         points: action.points,
         comments: action.comments,
       };
