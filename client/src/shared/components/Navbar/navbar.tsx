@@ -10,9 +10,6 @@ export default function Navbar() {
   const [{ Doctor }, dispatch] = useStateValue();
   console.log(Doctor);
 
-
-
-export default function Navbar() {
   const history = useHistory();
   return (
     <div className="h-screen w-4/12 pt-8 pl-8 pr-10 flex-col content-end bg-purple100">
