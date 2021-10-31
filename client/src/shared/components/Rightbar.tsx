@@ -25,7 +25,7 @@ const Rightbar = () => {
         <div className="mt-5">
           <Heading text="Trending Posts" />
           <div className="flex flex-col gap-2 mt-5 pr-10">
-            <ListItem />
+            <ListItem title="TTE question" />
           </div>
         </div>
 

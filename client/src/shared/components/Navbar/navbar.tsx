@@ -22,7 +22,10 @@ export default function Navbar() {
           <MdAddBox className="text-3xl" />
           <p className="font-sans text-sm font-medium">Create new post</p>
         </div>
-        <div className="flex cursor-pointer text-darkpurple gap-4 items-center mb-8 pl-6">
+        <div
+          className="flex cursor-pointer text-darkpurple gap-4 items-center mb-8 pl-6"
+          onClick={() => history.push('/dashboard')}
+        >
           <BiCategory className="text-2xl" />
           <p className="font-sans text-sm  font-medium"> Dashboard</p>
         </div>

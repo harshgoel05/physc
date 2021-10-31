@@ -7,7 +7,7 @@ import Comment from './Comment';
 const PostBody = () => {
   return (
     <div className="px-4">
-      <p className="font-medium text-xl mb-6">Pulmunary Maliganat Tumour</p>
+      <p className="font-medium text-xl mb-6">TTE question</p>
 
       <div className="flex items-center justify-between mb-7">
         <div className="flex">
@@ -27,15 +27,30 @@ const PostBody = () => {
       </div>
 
       <p className="text-base text-postgrey">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-        ullamcorper laoreet lorem at ornare. Sed rutrum diam et purus hendrerit,
-        id vehicula sem bibendum. Duis quis mollis eros. Sed semper scelerisque
-        nunc. Aenean non dui nec massa volutpat tristique. Integer vel cursus
-        nisl.
+        What is the difference between the EF via the Teichholz method vs the EF
+        reported at the bottom of the study. In the hospital on our patients
+        (I'm a general IM resident in the US rn), we're typically looking for
+        systolic dysfunction and what the EF is + any valvular pathologies +
+        diastolic dysfunction. But the more I read echo reports now the more I'm
+        noticing in the detailed readings it shows an EF from the Teichholz EF
+        and it's always quite a bit lower than the EF that is reported. Why is
+        that? Obviously it has to do with the method of measurement, but is the
+        actual EF the one reported at the summary? I've seen the two differences
+        being like, 15-20 % points.
       </p>
 
-      <Comment />
-      <Comment />
+      <Comment
+        up="5"
+        down="0"
+        name="Andrew King"
+        comment="I am a radiologist who did cardiac radiology for many years. I got somewhat obsessed with the various EF measurement methods. I did not really do echo, though, in clinical practice."
+      />
+      <Comment
+        up="3"
+        down="0"
+        name="Dr. Harish Bhatt"
+        comment="Teich method is an outdated measure."
+      />
     </div>
   );
 };

@@ -23,18 +23,50 @@ export const initialState = {
     ],
     emergencies: [
       {
-        title: 'Testing',
+        title: 'Testing for an MI',
         desc: 'This is a test post',
         time: 3,
       },
       {
-        title: 'another test',
+        title: 'Is this pseudoscience?',
         desc: 'This is a test post',
         time: 3,
       },
     ],
+    patients: [
+      {
+        title: 'Hiral Soni',
+        desc: 'This is a test patient',
+        time: 5,
+      },
+      {
+        title: 'John doe',
+        desc: 'This is a test patient',
+        time: 9,
+      },
+      {
+        title: 'Meghan fox',
+        desc: 'This is a test patient',
+        time: 9,
+      },
+      {
+        title: 'Tom Furry',
+        desc: 'This is a test patient',
+        time: 12,
+      },
+    ],
     points: 12,
     comments: [
+      {
+        title: 'Test comment',
+        desc: 'this is a test comment',
+        time: 16,
+      },
+      {
+        title: 'Test comment',
+        desc: 'this is a test comment',
+        time: 16,
+      },
       {
         title: 'Test comment',
         desc: 'this is a test comment',
@@ -55,6 +87,7 @@ function reducer(state: any, action: any) {
         location: action.location,
         points: action.points,
         comments: action.comments,
+        patients: action.patients,
       };
 
     default:

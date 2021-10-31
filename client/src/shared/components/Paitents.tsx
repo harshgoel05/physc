@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import FileImg from '../../assets/file.png';
 import ListItem from './ListItem';
+import { useStateValue } from '../../store/stateProvider';
 
 const Patients = () => {
   const [input, setInput] = useState({ patient: '' });
+  const [{ Doctor }, dispatch] = useStateValue();
 
   const handleChange = (e: any) => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -27,9 +29,9 @@ const Patients = () => {
       </div>
 
       <p className="text-xl font-medium mb-8">Patient History</p>
-      <ListItem type="xl" />
-      <ListItem type="xl" />
-      <ListItem type="xl" />
+      {Doctor.patients.map((patient: any) => {
+        return <ListItem type="xl" title={patient.title} time={patient.time} />;
+      })}
     </div>
   );
 };
