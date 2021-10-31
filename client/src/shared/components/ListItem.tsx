@@ -2,10 +2,22 @@ import React from 'react';
 import { BiTimeFive } from 'react-icons/bi';
 import { MdOutlineNavigateNext } from 'react-icons/md';
 import { IoDocumentTextOutline } from 'react-icons/io5';
+import { useStateValue } from '../../store/stateProvider';
+import { useHistory } from 'react-router-dom';
 
 const ListItem = (props: any) => {
+  const [{ Doctor }, dispatch] = useStateValue();
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push('/singlepost');
+  };
+
   return (
-    <div className=" flex items-center justify-between py-3 cursor-pointer hover:bg-blue-50 px-3">
+    <div
+      className=" flex items-center justify-between py-3 cursor-pointer hover:bg-blue-50 px-3"
+      onClick={handleClick}
+    >
       <div className="flex gap-4 items-center">
         {props.type !== 'manuscript' ? (
           <div className="bg-blue-700 rounded-full h-10 w-10 object-fill overflow-hidden relative">
@@ -26,7 +38,7 @@ const ListItem = (props: any) => {
       </div>
 
       {/* icons */}
-      {props.type === 'xl' && (
+      {(props.type === 'xl' || props.type === 'emergency-xl') && (
         <div className="flex gap-2 text-gray-400 items-center">
           <BiTimeFive />
           <span>{props.time} hrs</span>

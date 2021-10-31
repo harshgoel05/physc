@@ -1,5 +1,5 @@
 import React from 'react';
-import { HiOutlineUserGroup } from 'react-icons/hi';
+import { FaRegUser } from 'react-icons/fa';
 import { GoLocation } from 'react-icons/go';
 import Comment from './Comment';
 //GoLocation
@@ -12,7 +12,7 @@ const PostBody = () => {
       <div className="flex items-center justify-between mb-7">
         <div className="flex">
           <div className="flex mr-5  items-center">
-            <HiOutlineUserGroup className="text-2xl mr-2.5 text-inputblue " />
+            <FaRegUser className="text-2xl mr-2.5 text-inputblue " />
             <p className="text-inputblue font-medium text-sm"> Yaksh Chopra </p>
           </div>
           <div className="flex item-center">
