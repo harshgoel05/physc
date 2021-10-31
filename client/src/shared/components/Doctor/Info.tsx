@@ -60,7 +60,7 @@ const Info = ({ activeProp, setActive }: any) => {
                 title={item.title}
                 time={item.time}
                 desc={item.desc}
-                type="xl"
+                type="emergency-xl"
               />
             );
           })}
