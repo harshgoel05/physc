@@ -8,7 +8,7 @@ import Note from './Note';
 const Rightbar = () => {
   const [list, setList] = useState([
     {
-      title: '',
+      title: 'Patient Notes',
       desc: '',
     },
   ]);
@@ -40,7 +40,13 @@ const Rightbar = () => {
 
           <div className="flex flex-col gap-2 mt-5 pr-10">
             {list.map((item: any) => {
-              return <ListItem type="manuscript" title={item.title} />;
+              return (
+                <ListItem
+                  type="manuscript"
+                  title={item.title}
+                  desc={item.desc}
+                />
+              );
             })}
           </div>
         </div>

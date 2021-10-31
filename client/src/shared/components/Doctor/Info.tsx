@@ -49,7 +49,10 @@ const Info = ({ activeProp, setActive }: any) => {
       <div className="px-4 mt-10">
         <Heading text="Emergencies" />
         <div className="flex flex-col gap-2 mt-5">
-          <ListItem title="Testing" type="xl" />
+          <ListItem title="Cancer Patient" type="xl" />
+          <ListItem title="COVID Patient" type="xl" />
+          <ListItem title="Rashes on Face" type="xl" />
+          <ListItem title="Dog Bite on Leg" type="xl" />
         </div>
       </div>
     </>
