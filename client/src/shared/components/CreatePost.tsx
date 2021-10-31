@@ -3,7 +3,10 @@ import { MdCheckBoxOutlineBlank, MdCheckBox } from 'react-icons/md';
 import { toast } from 'react-toastify';
 import { createPost as createPostApi } from '../api/auth';
 import { Loader } from './Button';
+import { useStateValue } from '../../store/stateProvider';
+
 const CreatePost = () => {
+  const [{ Doctor }, dispatch] = useStateValue();
   const [isEmergency, setIsEmergency] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
