@@ -22,7 +22,7 @@ const Info = ({ activeProp, setActive }: any) => {
           </div>
         </div>
         <div
-          className="w-full h-52 bg-patient flex items-center justify-center cursor-pointer rounded-xl pt-6"
+          className="w-full h-52 bg-patient hover:bg-red-100 flex items-center justify-center cursor-pointer rounded-xl pt-6"
           onClick={() => {
             setActive('patients');
           }}
@@ -49,10 +49,7 @@ const Info = ({ activeProp, setActive }: any) => {
       <div className="px-4 mt-10">
         <Heading text="Emergencies" />
         <div className="flex flex-col gap-2 mt-5">
-          <ListItem type="xl" />
-          <ListItem type="xl" />
-          <ListItem type="xl" />
-          <ListItem type="xl" />
+          <ListItem title="Testing" type="xl" />
         </div>
       </div>
     </>

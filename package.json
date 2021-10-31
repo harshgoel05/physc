@@ -7,7 +7,8 @@
     "start": "node ./build/server.js",
     "build": "npx tsc && cd client && yarn && yarn build && npx ncp build ../build/client",
     "dev": "npx tsc-watch --onSuccess \"node ./build/server.js\"",
-    "format": "prettier --write ./**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc --ignore-path .gitignore"
+    "format": "prettier --write ./**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc --ignore-path .gitignore",
+    "heroku-postbuild": "cd client && yarn && yarn --only=dev --no-shrinkwrap && yarn build"
   },
   "author": "",
   "description": "",

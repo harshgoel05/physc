@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../../assets/logo.png';
 import blur from '../../assets/blur.png';
 import card from '../../assets/card.png';
 
 const Register = () => {
+  const [data, setData] = useState({
+    name: '',
+    email: '',
+    id: '',
+    password: '',
+  });
   return (
     <div>
       <img src={logo} className=" h-8 fixed top-8 left-8" alt="" />
@@ -15,22 +21,41 @@ const Register = () => {
               <input
                 placeholder="Full Name"
                 className="outline-none border-b p-2 w-full"
+                value={data.name}
+                onChange={(e: any) =>
+                  setData({ ...data, name: e?.target?.value })
+                }
               />
               <input
                 placeholder="Email"
                 className="outline-none border-b p-2 w-full mt-8"
                 type="email"
+                value={data.email}
+                onChange={(e: any) =>
+                  setData({ ...data, email: e?.target?.value })
+                }
               />
               <input
                 placeholder="Liscence ID"
                 className="outline-none border-b p-2 w-full mt-8"
+                value={data.id}
+                onChange={(e: any) =>
+                  setData({ ...data, id: e?.target?.value })
+                }
               />
               <input
                 placeholder="Password"
                 className="outline-none border-b p-2 w-full mt-8"
                 type="password"
+                value={data.password}
+                onChange={(e: any) =>
+                  setData({ ...data, password: e?.target?.value })
+                }
               />
-              <p className="bg-darkpurple w-full text-white rounded-lg mt-12 text-center py-3 cursor-pointer">
+              <p
+                className="bg-darkpurple w-full text-white rounded-lg mt-12 text-center py-3 cursor-pointer"
+                onClick={() => console.log(data)}
+              >
                 Create Account
               </p>
               <p className="text-gray-500 mt-8">
